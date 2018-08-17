@@ -1,5 +1,5 @@
 target/
-.setttings/
+.settings/
 .classpath
 .project
 
@@ -14,3 +14,4 @@ hs_err_pid*
 
 # Log file
 *.log
+.vscode/
