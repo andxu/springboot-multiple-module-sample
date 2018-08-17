@@ -1,0 +1,16 @@
+target/
+.setttings/
+.classpath
+.project
+
+hs_err_pid*
+.idea
+*.iws
+*.iml
+*.ipr
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
