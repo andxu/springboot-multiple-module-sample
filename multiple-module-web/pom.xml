@@ -8,7 +8,7 @@
 		<groupId>com.ms.samples</groupId>
 		<artifactId>springboot-multiple-module-sample</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../</relativePath>
 	</parent>
 	<dependencies>
 		<dependency>
@@ -18,6 +18,8 @@
 		<dependency>
 			<groupId>com.ms.samples</groupId>
 			<artifactId>multiple-module-entity</artifactId>
+			<!-- <scope>system</scope>
+			<systemPath>${basedir}/../multiple-module-entity/target/multiple-module-entity-${project.version}.jar</systemPath> -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
