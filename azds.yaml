@@ -1,0 +1,33 @@
+kind: helm-release
+apiVersion: 1.0
+build:
+  context: .
+  dockerfile: Dockerfile
+install:
+  chart: charts/springboot-multiple-module
+  values:
+  - values.dev.yaml?
+  - secrets.dev.yaml?
+  set:
+    replicaCount: 1
+    image:
+      tag: $(tag)
+      pullPolicy: Never
+    ingress:
+      hosts:
+      # This expands to [space.s.]springboot-multiple-module.<guid>.<region>.aksapp.io
+      - $(spacePrefix)springboot-multiple-module$(hostSuffix)
+configurations:
+  develop:
+    build:
+      dockerfile: Dockerfile.develop
+      useGitIgnore: true
+    container:
+      imports:
+      - azuredevjava/javadebug:test@/javadebug:/javadebug
+      sync:
+      - "**/**"
+      iterate:
+        processesToKill: [java]
+        buildCommands:
+        - [mvn, compile]
