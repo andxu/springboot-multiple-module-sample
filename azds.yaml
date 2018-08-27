@@ -23,11 +23,9 @@ configurations:
       dockerfile: Dockerfile.develop
       useGitIgnore: true
     container:
-      imports:
-      - azuredevjava/javadebug:test@/javadebug:/javadebug
       sync:
       - "**/**"
       iterate:
         processesToKill: [java]
         buildCommands:
-        - [mvn, compile]
+        - [mvn, package]
